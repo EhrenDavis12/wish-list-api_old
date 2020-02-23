@@ -25,7 +25,7 @@ SECRET_KEY = '$ya2c=qvpn7mefcv_1djx8d&=gfgjl@3harrm61n6e=ck2lrd#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'wish-list-davis-api.herokuapp.com']
 
 
 # Application definition
