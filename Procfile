@@ -1,1 +1,1 @@
-web: gunicorn tutorial.wsgi
+web: gunicorn wish_list_api.wsgi
