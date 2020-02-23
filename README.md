@@ -6,10 +6,11 @@
 
   <ol>
   <li>$ python3 -m venv env</li>
+  <li>if $ python3 does not work try $ py -3</li>
   <li>$ source env/bin/activate</li>
   </ol>
 
-- \$ pip install requirements
+- \$ pip install -r requirements
 - \$ python manage.py migrate
 - \$ python manage.py runserver
 
