@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$ya2c=qvpn7mefcv_1djx8d&=gfgjl@3harrm61n6e=ck2lrd#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'wish-list-davis-api.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'wish-list-davis-api.herokuapp.com']
 
 
 # Application definition
@@ -79,6 +80,8 @@ WSGI_APPLICATION = 'wish_list_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+db_from_env = dj_database_url.config(conn_max_age=600)
+
 DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
@@ -97,6 +100,8 @@ DATABASES = {
         'PORT': int(os.environ.get('PORT', 5432)),
     }
 }
+
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -139,3 +144,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
