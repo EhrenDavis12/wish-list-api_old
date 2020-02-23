@@ -80,7 +80,6 @@ WSGI_APPLICATION = 'wish_list_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-db_from_env = dj_database_url.config(conn_max_age=600)
 
 DATABASES = {
     # 'default': {
@@ -91,7 +90,7 @@ DATABASES = {
         # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # Or path to database file if using sqlite3.
-        'NAME': 'wish-list',
+        'NAME': os.environ.get('Database', 'wish-list'),
         'USER': os.environ.get('USER', 'postgres'),                      # Not used with sqlite3.
         'PASSWORD': os.environ.get('PASSWORD', 'postgres'),                  # Not used with sqlite3.
         # Set to empty string for localhost. Not used with sqlite3.
@@ -100,7 +99,8 @@ DATABASES = {
         'PORT': int(os.environ.get('PORT', 5432)),
     }
 }
-
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 DATABASES['default'].update(db_from_env)
 
 
