@@ -89,10 +89,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # Or path to database file if using sqlite3.
         'NAME': 'wish-list',
-        'USER': 'postgres',                      # Not used with sqlite3.
-        'PASSWORD': 'postgres',                  # Not used with sqlite3.
+        'USER': os.environ.get('USER', 'postgres'),                      # Not used with sqlite3.
+        'PASSWORD': os.environ.get('PASSWORD', 'postgres'),                  # Not used with sqlite3.
         # Set to empty string for localhost. Not used with sqlite3.
-        'HOST': 'localhost',
+        'HOST': os.environ.get('HOST', 'localhost')
         # Set to empty string for default. Not used with sqlite3.
         'PORT': int(os.environ.get('PORT', 5432)),
     }
