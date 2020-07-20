@@ -1,0 +1,14 @@
+[
+  {
+    "model": "api.customAuth.User",
+    "pk": "eim90iYsnUiZrwOKzVN_lQ",
+    "fields": {
+      "username": "TestUser1",
+      "last_login": "2019-08-20T22:15:09.926Z",
+      "email": "alleont+1@yahoo.com",
+      "first_name": "test",
+      "last_name": "user",
+      "is_active": true
+    }
+  }
+]
